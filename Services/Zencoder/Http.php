@@ -106,7 +106,7 @@ class Services_Zencoder_Http
               if ($i >= count($parts) - 2) {
                 break; // don't bother continuing if there's no head or body candidate to come
               }
-              if ($part == 'HTTP/1.1 100 Continue') {
+              if ($part == 'HTTP/1.1 100 Continue' || $part == 'HTTP/1.1 200 Connection established') {
                 $head = $parts[$i + 1];
                 $body = implode("\r\n\r\n", array_slice($parts, $i + 2));
               }
